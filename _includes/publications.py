@@ -17,5 +17,5 @@ with open('publications.html', 'w') as f:
 			pages = p['data']['pages']
 			doi = p['data']['DOI']
 			isbn = p['data']['ISBN']
-			date = p['meta']['parsedDate']
-			print(f'<li>{authors}. <a href="https://doi.org/{doi}"><b>{title}</b></a>. {proceedings}, {pages}, <a href="/pubs/{key}.pdf" class="uk-link-text uk-icon-link" uk-icon="file-pdf" target="_blank"></a>.</li>', file=f)
+			date = p['meta']['parsedDate'][:4]
+			print(f'<li>{authors}. <a href="https://doi.org/{doi}"><b>{title}</b></a>. {proceedings}, {pages}, {date}, <a href="/pubs/{key}.pdf" class="uk-link-text uk-icon-link" uk-icon="file-pdf" target="_blank"></a>.</li>', file=f)
