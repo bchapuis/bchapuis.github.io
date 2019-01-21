@@ -9,6 +9,11 @@ layout: default
   </header>
 
   <div class="post-content" itemprop="articleBody">
+    {% if page.author %}
+    <div class="uk-text-lead">
+        {{ page.intro | markdownify  }}
+    </div>
+    {% endif %}
     {{ content }}
   </div>
 

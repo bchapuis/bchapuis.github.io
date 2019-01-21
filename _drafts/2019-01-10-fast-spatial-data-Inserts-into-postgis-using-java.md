@@ -1,15 +1,13 @@
 ---
-layout: default
-title: "Fast spatial data inserts into Postgis using Java and the COPY command (PgBulkInsert)"
+layout: post
+title: "Fast spatial data inserts into Postgis using Java and PgBulkInsert (COPY command)"
 date: 2019-01-10 09:49:00
+author: <a href="/">Bertil Chapuis</a>
+intro: >
+    Looking for a mean to efficiently import [OpenStreetMap](https://www.openstreetmap.org) data into [Postgis](https://postgis.net/) from Java, I recently came across [PgBulkInsert](https://github.com/bytefish/PgBulkInsert), a Java library that leverages the COPY command and comes with a single dependency to the official postgresql driver. As the API is well thought and provides good extension points, this post will show how Postgis geometry data types can be supported with only a few lines of code.
 ---
 
-## Fast spatial data inserts into Postgis using Java and the COPY command (PgBulkInsert)
-
-Looking for a mean to efficiently import [OpenStreetMap](https://www.openstreetmap.org) data into [Postgis](https://postgis.net/) from Java, I recently came across [PgBulkInsert](https://github.com/bytefish/PgBulkInsert), a Java library that leverages the COPY command and comes with a single dependency to the official postgresql driver.
-As the API is well thought and provides good extension points, this post will show how Postgis geometry data types can be supported with a few lines of cod.
-
-PgBulkInsert use the COPY command with the [binary format](https://www.postgresql.org/docs/9.3/sql-copy.html) of Postgres to import data.
+PgBulkInsert uses the COPY command with the [binary format](https://www.postgresql.org/docs/9.3/sql-copy.html) of Postgres to import data.
 Implementing binary formats is often time consuming.
 Luckily, Postgis extensively rely on the Well-Known Binary format ([WKB](https://en.wikipedia.org/wiki/Well-known_text#Well-known_binary)) implemented in many spatial libraries. 
 Therefore, we can use an open source implementation of the format, such as the [Simple Features WKB](https://github.com/ngageoint/simple-features-wkb-java) maintained by the [National Geospatial-Intelligence Agency (NGA)](https://www.nga.mil/Pages/Default.aspx).
