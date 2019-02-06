@@ -16,3 +16,5 @@ twitter_username: bchapuis
 github_username:  bchapuis
 highlighter: rouge
 
+plugins:
+  - jekyll-sitemap
